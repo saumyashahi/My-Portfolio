@@ -1,0 +1,134 @@
+.projects-section {
+    padding: 50px 5%;
+    color: var(--text-color);
+  }
+  
+  .projects-header {
+      position: relative;
+      margin-bottom: 3rem;
+      text-align: left;
+  }
+  
+  .projects-title .highlight-proj {
+    background-color: var(--accent-color);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 2.5rem;
+    font-weight: 700;
+  }
+  
+  .cursor-proj {
+    animation: blink 1s infinite;
+  }
+  
+  @keyframes blink {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+  }
+  
+  .header-arrow {
+      position: absolute;
+      left: 320px;
+      top: 55px;
+      width: 50px;
+      transform: rotate(10deg);
+  }
+  
+  .projects-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    margin-bottom: 4rem;
+  }
+  
+  .project-card {
+    border-radius: 12px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    width: 320px;
+    transition: all 0.3s ease;
+    color: var(--text-color-dark, #e5e7eb);
+  }
+  
+  .project-image-container {
+    border-bottom: 2px solid #1f2937;
+    padding: 1rem;
+  }
+  .project-image {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 8px;
+  }
+  
+  .project-info {
+      padding: 1.5rem;
+  }
+  
+  .project-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+  }
+  
+  .project-button {
+      display: inline-block;
+      padding: 10px 20px;
+      border-radius: 50px;
+      background: transparent;
+      color: inherit;
+      border: 2px solid currentColor;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+  }
+  .project-button:hover {
+      background: var(--accent-color);
+      color: #111827;
+      border-color: var(--accent-color);
+  }
+  
+  /* Card themes and transforms */
+  .card-proj-blue {
+    background-color: #1E293B;
+    transform: rotate(-2deg);
+  }
+  .card-proj-yellow {
+    background-color: #1E293B;
+    transform: rotate(2deg);
+  }
+  .card-proj-pink {
+    background-color: #1E293B;
+    transform: rotate(-1deg);
+  }
+  .project-card:hover {
+      transform: rotate(0) scale(1.05);
+      z-index: 10;
+  }
+  
+  /* Main portfolio button */
+  .portfolio-button-container {
+      margin-top: 2rem;
+  }
+  
+  .portfolio-button {
+      padding: 12px 28px;
+      border: 2px solid var(--text-color);
+      color: var(--text-color);
+      background: transparent;
+      border-radius: 50px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+  }
+  
+  .portfolio-button:hover {
+      background: var(--text-color);
+      color: var(--navbar-background);
+  } 
