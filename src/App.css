@@ -1,0 +1,11 @@
+html {
+  background-color: var(--navbar-background);
+}
+
+body {
+  background: radial-gradient(var(--dot-color) 1px, transparent 1px) top left / 25px 25px, var(--navbar-background);
+  background-attachment: fixed;
+  color: var(--text-color);
+  transition: background 0.3s, color 0.3s;
+  font-family: 'Poppins', sans-serif;
+} 
