@@ -1,0 +1,143 @@
+.experience-section {
+    padding: 50px 5%;
+    color: var(--text-color);
+    position: relative;
+    z-index: 1;
+    overflow-x: hidden; /* Prevents horizontal scroll from animations */
+  }
+  
+  .experience-title {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+  
+  .highlight-exp {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--text-color);
+    background: none;
+    padding: 0;
+  }
+  
+  .timeline-container {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  
+  .timeline-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 14px;
+    height: 100%;
+    width: 4px;
+    background: var(--accent-color);
+    opacity: 0.3;
+  }
+  
+  .timeline-item {
+    position: relative;
+    margin-bottom: 3rem;
+    padding-left: 50px;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 1s cubic-bezier(0.25, 0.8, 0.25, 1);
+  }
+  
+  .timeline-item.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .timeline-dot {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 5px;
+    height: 32px;
+    width: 32px;
+    border-radius: 50%;
+    background: var(--navbar-background);
+    border: 4px solid var(--accent-color);
+    z-index: 1;
+  }
+  
+  .timeline-content {
+    background-color: var(--shadow-color);
+    padding: 1.5rem;
+    border-radius: 12px;
+  }
+  
+  .timeline-date {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--accent-color);
+    margin-bottom: 0.5rem;
+    display: inline-block;
+  }
+  
+  .timeline-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 0;
+  }
+  
+  .timeline-company {
+    font-size: 1.1rem;
+    font-weight: 500;
+    opacity: 0.8;
+    margin: 0.25rem 0 1rem 0;
+  }
+  
+  .timeline-description {
+    padding-left: 0;
+    list-style: none;
+  }
+  
+  .timeline-description li {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 0.5rem;
+    position: relative;
+    padding-left: 20px;
+  }
+  
+  .timeline-description li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 9px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: var(--accent-color);
+    opacity: 0.7;
+  }
+  
+  .timeline-tech {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    opacity: 0.8;
+  }
+  
+  .timeline-tech span {
+    font-weight: 600;
+  }
+  
+  @media screen and (max-width: 768px) {
+    .timeline-container::before {
+      left: 7px;
+    }
+    .timeline-item {
+      padding-left: 30px;
+    }
+    .timeline-dot {
+      height: 20px;
+      width: 20px;
+      left: -2px;
+    }
+  }
+  
