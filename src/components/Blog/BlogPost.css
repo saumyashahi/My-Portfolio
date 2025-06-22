@@ -1,0 +1,79 @@
+.blog-post-container {
+  padding: 120px 5% 5%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.blog-post-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 3rem;
+  line-height: 1.2;
+  margin-bottom: 15px;
+}
+
+.blog-post-date {
+  color: var(--text-secondary);
+  margin-bottom: 40px;
+}
+
+.markdown-content {
+  line-height: 1.8;
+  font-size: 1.1rem;
+}
+
+.markdown-content h1,
+.markdown-content h2,
+.markdown-content h3 {
+  font-family: 'Playfair Display', serif;
+  margin-top: 40px;
+  margin-bottom: 20px;
+  line-height: 1.3;
+}
+
+.markdown-content h1 { font-size: 2.5rem; }
+.markdown-content h2 { font-size: 2rem; }
+.markdown-content h3 { font-size: 1.5rem; }
+
+.markdown-content p {
+  margin-bottom: 20px;
+}
+
+.markdown-content a {
+  color: var(--accent-color);
+  text-decoration: none;
+  border-bottom: 1px solid var(--accent-color);
+}
+
+.markdown-content ul,
+.markdown-content ol {
+  margin-bottom: 20px;
+  padding-left: 30px;
+}
+
+.markdown-content blockquote {
+  border-left: 4px solid var(--accent-color);
+  padding-left: 20px;
+  margin: 20px 0;
+  color: var(--text-secondary);
+  font-style: italic;
+}
+
+.markdown-content pre {
+  background-color: var(--card-background);
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  overflow-x: auto;
+}
+
+.markdown-content code {
+  font-family: 'Courier New', Courier, monospace;
+  background-color: var(--card-background);
+  padding: 2px 5px;
+  border-radius: 4px;
+}
+
+.markdown-content pre code {
+  background-color: transparent;
+  padding: 0;
+} 
