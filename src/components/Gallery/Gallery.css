@@ -1,0 +1,104 @@
+/* Gallery.css - Photowall Vibe */
+.gallery-container {
+    padding: 120px 5% 5%;
+    max-width: 1600px;
+    margin: 0 auto;
+  }
+  
+  .gallery-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    text-align: center;
+    margin-bottom: 60px;
+    color: var(--text-color);
+  }
+  
+  .photowall-grid {
+    line-height: 0;
+    column-count: 4; /* Default to 4 columns */
+    column-gap: 20px;
+  }
+  
+  .photowall-item {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    margin-bottom: 20px;
+    cursor: pointer;
+    overflow: hidden; /* Ensures the overlay and caption are contained */
+    border-radius: 12px;
+    box-shadow: 0 8px 20px var(--shadow-color);
+  }
+  
+  .photowall-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    transition: transform 0.4s ease;
+  }
+  
+  .photowall-item:hover img {
+    transform: scale(1.05);
+  }
+  
+  .photowall-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+    color: #fff;
+    padding: 30px 20px 20px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+  }
+  
+  .photowall-item:hover .photowall-caption {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .photowall-caption h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: 600;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 1200px) {
+    .photowall-grid {
+      column-count: 3;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .photowall-grid {
+      column-count: 2;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .photowall-grid {
+      column-count: 1;
+    }
+  }
+  /* New styles for Gallery Sections */
+.gallery-section {
+    margin-bottom: 80px;
+  }
+  
+  .gallery-section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    color: var(--text-color);
+    margin-bottom: 40px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid var(--navbar-border);
+  }
+  
+  .empty-section-message {
+    color: var(--text-secondary);
+    font-style: italic;
+    text-align: center;
+  }
