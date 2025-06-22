@@ -1,0 +1,17 @@
+.custom-cursor {
+    position: fixed;
+    width: 28px;
+    height: 28px;
+    background-image: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28"><path d="M4 2v24l8-10h12L4 2z" fill="%23D988B9" stroke="%23000000" stroke-width="1.5"/></svg>');
+    background-repeat: no-repeat;
+    transform: translate(-5px, -5px);
+    pointer-events: none;
+    transition: background-image 0.2s ease-out, transform 0.1s ease-out;
+    z-index: 9999;
+    filter: drop-shadow(0 2px 3px rgba(0,0,0,0.3));
+}
+
+.custom-cursor.hovering {
+    background-image: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24"><path d="M8.782.852l-3.535 7.07 7.07 3.535 2.122-11.312-5.657.707zm-2.121 9.9l-4.242 4.243 8.484 8.484 4.242-4.242-8.484-8.485z" fill="%23D988B9" stroke="%23000000" stroke-width="1"/></svg>');
+    transform: translate(-5px, -5px) scale(1.1);
+} 
