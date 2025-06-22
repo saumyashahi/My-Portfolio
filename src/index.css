@@ -1,11 +1,21 @@
-*,
-*::before,
-*::after {
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+* {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  cursor: none !important;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+a, button, [role="button"] {
+  cursor: none !important;
+}
 
-/* No default background color */
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  background-image: radial-gradient(var(--dot-color) 1.5px, transparent 0);
+  background-size: 30px 30px;
+  transition: background-color 0.3s, color 0.3s;
+}
