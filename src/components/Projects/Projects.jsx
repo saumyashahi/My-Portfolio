@@ -1,7 +1,34 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './Projects.css';
 
 const Projects = () => {
+    const [title, setTitle] = useState('');
+    const [isDeleting, setIsDeleting] = useState(false);
+    const fullTitle = 'Featured Works';
+
+    useEffect(() => {
+        const handleTyping = () => {
+            if (!isDeleting) {
+                if (title.length < fullTitle.length) {
+                    setTitle(fullTitle.substring(0, title.length + 1));
+                } else {
+                    setTimeout(() => setIsDeleting(true), 3000); // Pause before deleting
+                }
+            } else {
+                if (title.length > 0) {
+                    setTitle(title.substring(0, title.length - 1));
+                } else {
+                    setIsDeleting(false);
+                }
+            }
+        };
+
+        const typingSpeed = isDeleting ? 80 : 150;
+        const timer = setTimeout(handleTyping, typingSpeed);
+
+        return () => clearTimeout(timer);
+    }, [title, isDeleting, fullTitle]);
+
     const projectData = [
         {
           title: 'REV-X | Peer Project Review',
@@ -27,14 +54,18 @@ const Projects = () => {
     <section className="projects-section">
         <div className="projects-header">
             <h2 className="projects-title">
-                <span className="highlight-proj">Featured Works</span>
+                <span className="highlight-proj">
+                    {title}
+                    <span className="cursor-proj">|</span>
+                </span>
             </h2>
-            <img src="/arrow.svg" alt="arrow" className="header-arrow" /> {/* You'll need to add this image to /public */}
         </div>
       
       <div className="projects-container">
         {projectData.map((project, index) => (
           <div key={index} className={`project-card card-proj-${project.color}`}>
+            <div className="project-bubble bubble-1"></div>
+            <div className="project-bubble bubble-2"></div>
             <div className="project-image-container">
                 <img src={project.image} alt={project.title} className="project-image" />
             </div>
