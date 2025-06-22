@@ -56,13 +56,13 @@
     content: '';
     position: absolute;
     left: 0;
-    top: 5px;
-    height: 32px;
-    width: 32px;
+    top: 10px;
+    height: 24px;
+    width: 24px;
     border-radius: 50%;
-    background: var(--navbar-background);
-    border: 4px solid var(--accent-color);
+    background: radial-gradient(circle at 8px 8px, var(--accent-color), #000);
     z-index: 1;
+    box-shadow: 0 0 10px var(--accent-color);
   }
   
   .timeline-content {
@@ -83,6 +83,13 @@
     font-size: 1.5rem;
     font-weight: 600;
     margin: 0;
+  }
+  
+  .timeline-title span {
+    background-color: var(--accent-color);
+    color: black;
+    padding: 5px 10px;
+    border-radius: 5px;
   }
   
   .timeline-company {

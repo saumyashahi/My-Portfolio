@@ -107,7 +107,9 @@ const Experience = () => {
             <div className="timeline-dot"></div>
             <div className="timeline-content">
               <span className="timeline-date">{item.date}</span>
-              <h3 className="timeline-title">{item.title}</h3>
+              <h3 className="timeline-title">
+                <span>{item.title}</span>
+              </h3>
               {item.company && <h4 className="timeline-company">{item.company}</h4>}
               <ul className="timeline-description">
                 {item.description.map((point, i) => <li key={i}>{point}</li>)}
