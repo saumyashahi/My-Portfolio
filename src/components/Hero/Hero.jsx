@@ -6,7 +6,7 @@ const Hero = () => {
   const [loopNum, setLoopNum] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
   const [text, setText] = useState('');
-  const toRotate = ['Quantum Enthusiast', 'Cybersecurity Major', 'Software Developer'];
+  const toRotate = ['Quantum Researcher', 'GSoC Contributor', 'Cybersecurity Enthusiast'];
 
   useEffect(() => {
     const handleType = () => {
@@ -48,7 +48,7 @@ const Hero = () => {
           <span className="cursor">|</span>
         </p>
         <p className="hero-sub-pitch anim-load anim-delay-4">
-          I build things for the web, exploring the frontiers of technology.
+          From C++ fundamentals to quantum cryptography, I thrive on turning complex challenges into elegant, secure solutions.
         </p>
         <div className="hero-buttons anim-load anim-delay-5">
           <button className="hero-btn-primary">Connect with me!</button>
@@ -74,3 +74,4 @@ const Hero = () => {
 };
 
 export default Hero;
+ 

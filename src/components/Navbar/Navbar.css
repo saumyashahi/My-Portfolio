@@ -1,175 +1,206 @@
-:root {
-    --navbar-background: #ffffff;
-    --text-color: #000000;
-    --navbar-border: #000000;
-    --accent-color: #D988B9; /* Modest Pink */
-    --dot-color: #bbbbbb; /* Not faded */
-    --shadow-color: rgba(0, 0, 0, 0.1);
-  }
-  
-  [data-theme='dark'] {
-    --navbar-background: #000000;
-    --navbar-border: aliceblue;
-    --text-color:#ffffff;
-    --accent-color:  #D988B9; 
-    --navbar-border: #fffffff3;
-    --dot-color: #ffffff41; /* Not faded */
-    --shadow-color: rgba(217, 136, 185, 0.034);
-  }
-  
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 95%; /* Occupies 95% of the screen width */
+  max-width: 1400px; /* With a maximum width for very large screens */
+  height: fit-content;
+  min-height: 60px;
+  padding: 0px 24px;
+  background-color: var(--navbar-background);
+  color: var(--text-color);
+  border-radius: 100px;
+  border: 1px solid var(--navbar-border);
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%); /* This combination perfectly centers the element */
+  z-index: 999;
+  box-shadow: 0 4px 12px var(--shadow-color);
+  font-size: 1rem;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+.navbar-logo {
+  color: var(--text-color);
+  justify-self: start;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 1.5rem;
+  color: var(--accent-color);
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+  text-transform: capitalize;
+  letter-spacing: 1px;
+  transition: color 0.3s ease;
+}
+
+.navbar-logo:hover {
+  color: var(--text-color);
+}
+
+.nav-menu {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  text-align: center;
+}
+
+.nav-item {
+  height: 60px;
+}
+
+.nav-links {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.1rem;
+  padding: 0 1rem;
+  color: var(--text-color);
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  height: 100%;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-links:hover {
+  color: var(--accent-color);
+}
+
+.navbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.theme-toggle-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--theme-toggle-bg);
+  color: var(--text-color);
+  border: 1px solid var(--navbar-border);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 1.1rem;
+}
+
+.theme-toggle-button:hover {
+  background-color: var(--theme-toggle-hover);
+  color: var(--accent-color);
+  transform: scale(1.05);
+}
+
+.connect-button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 100px;
+  background-color: var(--accent-color);
+  color: var(--navbar-background);
+  border: none;
+  outline: none;
+  cursor: pointer;
+  transition: all 0.3s ease-out;
+  font-weight: 600;
+  text-transform: capitalize;
+  letter-spacing: 1px;
+}
+
+.connect-button:hover {
+  background: var(--accent-color);
+  color: var(--text-color);
+  border: 1px solid var(--accent-color);
+}
+
+.menu-icon {
+  display: none;
+}
+
+@media screen and (max-width: 1400px) {
   .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 95%; /* Occupies 95% of the screen width */
-    max-width: 1400px; /* With a maximum width for very large screens */
-    height: fit-content;
-    min-height: 60px;
-    padding: 0 24px;
-    background-color: var(--navbar-background);
-    color: var(--text-color);
-    border-radius: 100px;
-    border: 1px solid var(--navbar-border);
-    position: absolute;
-    top: 20px;
-    left: 50%;
-    transform: translateX(-50%); /* This combination perfectly centers the element */
-    z-index: 999;
-    box-shadow: 0 4px 12px var(--shadow-color);
-    font-size: 1rem;
-    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+    width: calc(100% - 40px);
+    padding: 0 12px;
   }
-  
-  .navbar-logo {
-    font-family: 'Poppins', sans-serif;
-    color: var(--text-color);
-    justify-self: start;
-    cursor: pointer;
-    text-decoration: none;
-    font-size: 1.5rem;
-    color: var(--accent-color);
-    display: flex;
-    align-items: center;
-    font-weight: 600;
-    text-transform: capitalize;
-    letter-spacing: 1px;
-    transition: color 0.3s ease;
+}
+
+@media screen and (max-width: 768px) {
+  .navbar {
+    padding: 0 6px;
+    width: calc(100% - 24px);
   }
-  
-  .navbar-logo:hover {
-    color:aliceblue;
-  }
-  
-  .nav-menu {
-    display: flex;
-    align-items: center;
-    list-style: none;
-    text-align: center;
-  }
-  
-  .nav-item {
-    height: 60px;
-  }
-  
-  .nav-links {
-    font-size: 1.1rem;
-    padding: 0 1rem;
-    color: var(--text-color);
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-    height: 100%;
-    font-weight: 500;
-    transition: color 0.3s ease;
-  }
-  
-  .nav-links:hover {
-    color: var(--accent-color);
-  }
-  
-  .connect-button {
-    padding: 10px 20px;
-    font-size: 1rem;
-    border-radius: 100px;
-    background-color: var(--accent-color);
-    color: var(--navbar-background);
-    border: none;
-    outline: none;
-    cursor: pointer;
-    transition: all 0.3s ease-out;
-    font-weight: 600;
-    font-family: 'Poppins', sans-serif;
-    text-transform: capitalize;
-    letter-spacing: 1px;
-  }
-  
-  .connect-button:hover {
-    background: var(--accent-color);
-    color: var(--text-color);
-    border: 1px solid var(--accent-color);
-  }
-  
-  .menu-icon {
+  .nav-menu,
+  .navbar-actions {
     display: none;
   }
-  
-  @media screen and (max-width: 1400px) {
-    .navbar {
-      width: calc(100% - 40px);
-      padding: 0 12px;
-    }
+
+  .menu-icon {
+    display: block;
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: var(--text-color);
+    padding-right: 10px;
+    transition: color 0.3s ease;
   }
-  
-  @media screen and (max-width: 768px) {
-    .navbar {
-      padding: 0 6px;
-      width: calc(100% - 24px);
-    }
-    .nav-menu,
-    .connect-button {
-      display: none;
-    }
-  
-    .menu-icon {
-      display: block;
-      font-size: 1.8rem;
-      cursor: pointer;
-      color: var(--text-color);
-      padding-right: 10px;
-      transition: color 0.3s ease;
-    }
-  
-    .menu-icon:hover {
-      color: var(--accent-color);
-    }
-  
-    .nav-menu.active {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      position: absolute;
-      top: 65px;
-      right: 0;
-      width: 250px;
-      background: var(--navbar-background);
-      z-index: 998;
-      border: 1px solid var(--navbar-border);
-      border-radius: 20px;
-      padding: 1rem 0;
-      box-shadow: 0 4px 12px var(--shadow-color);
-    }
-  
-    .nav-item {
-      width: 100%;
-      height: auto;
-      padding: 0.5rem 0;
-    }
-  
-    .nav-links {
-      padding: 0.5rem 1rem;
-      width: 100%;
-      text-align: center;
-    }
+
+  .menu-icon:hover {
+    color: var(--accent-color);
   }
-  
-  
+
+  .nav-menu.active {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    top: 65px;
+    right: 0;
+    width: 250px;
+    background: var(--navbar-background);
+    z-index: 998;
+    border: 1px solid var(--navbar-border);
+    border-radius: 20px;
+    padding: 1rem 0;
+    box-shadow: 0 4px 12px var(--shadow-color);
+  }
+
+  .navbar-actions.active {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    top: 65px;
+    right: 0;
+    width: 250px;
+    background: var(--navbar-background);
+    z-index: 998;
+    border: 1px solid var(--navbar-border);
+    border-radius: 20px;
+    padding: 1rem 0;
+    box-shadow: 0 4px 12px var(--shadow-color);
+    margin-top: 1rem;
+  }
+
+  .nav-item {
+    width: 100%;
+    height: auto;
+    padding: 0.5rem 0;
+  }
+
+  .nav-links {
+    padding: 0.5rem 1rem;
+    width: 100%;
+    text-align: center;
+  }
+
+  .navbar-actions {
+    display: none;
+  }
+
+  .nav-menu.active .connect-button {
+    display: block;
+    margin-top: 1rem;
+  }
+} 

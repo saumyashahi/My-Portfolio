@@ -1,10 +1,45 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;500;600;700&display=swap');
+
+:root {
+  --background-color: #ffffffc1;
+  --text-color: #000000;
+  --accent-color: #D988B9;
+  --dot-color: #000000e8;
+  --dot-size: 2px;
+  --shadow-color: rgba(0, 0, 0, 0.1);
+  --navbar-background: #ffffff;
+  --navbar-border: #000000;
+  --theme-toggle-bg: #f5f5f5c9;
+  --theme-toggle-hover: #444444;
+  --card-background: rgba(0, 0, 0, 0.05);
+}
+
+[data-theme='dark'] {
+  --background-color: #000000eb;
+  --text-color: #ffffff;
+  --accent-color: #D988B9;
+  --dot-color: #ffffff44;
+  --shadow-color: rgba(217, 136, 185, 0.034);
+  --navbar-background: #000000;
+  --navbar-border: #fffffff3;
+  --theme-toggle-bg: #040404;
+  --theme-toggle-hover: #313131;
+  --card-background: rgba(255, 255, 255, 0.062);
+}
 
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
   cursor: none !important;
+}
+
+h1 {
+  font-family: 'Playfair Display', serif;
+}
+
+h2, h3, h4, h5, h6 {
+  font-family: 'Playfair Display', serif;
 }
 
 a, button, [role="button"] {
@@ -15,7 +50,12 @@ body {
   font-family: 'Poppins', sans-serif;
   background-color: var(--background-color);
   color: var(--text-color);
-  background-image: radial-gradient(var(--dot-color) 1.5px, transparent 0);
-  background-size: 30px 30px;
+  background-image: radial-gradient(var(--dot-color) 0.5px, transparent 0);
+  background-size: 18px 18px;
+  background-attachment: fixed;
   transition: background-color 0.3s, color 0.3s;
+}
+
+.text-accent {
+  color: var(--accent-color);
 }

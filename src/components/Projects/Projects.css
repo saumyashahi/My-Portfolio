@@ -4,6 +4,7 @@
   }
   
   .projects-header {
+    font-family: 'Playfair Display', serif;
       position: relative;
       margin-bottom: 3rem;
       text-align: left;
@@ -42,11 +43,13 @@
   
   .project-card {
     border-radius: 12px;
-    border: 2px solid #1f2937;
+    border: 2px solid var(--navbar-border);
     width: 320px;
     transition: all 0.3s ease;
     position: relative;
-    color: var(--text-color-dark, #e5e7eb);
+    color: var(--text-color);
+    background-color: var(--navbar-background);
+    box-shadow: 0 4px 12px var(--shadow-color);
   }
   
   .project-bubble {
@@ -79,7 +82,7 @@
   }
   
   .project-image-container {
-    border-bottom: 2px solid #1f2937;
+    border-bottom: 2px solid var(--navbar-border);
     padding: 1rem;
   }
   .project-image {
@@ -112,21 +115,18 @@
   }
   .project-button:hover {
       background: var(--accent-color);
-      color: #111827;
+      color: var(--navbar-background);
       border-color: var(--accent-color);
   }
   
   /* Card themes and transforms */
   .card-proj-blue {
-    background-color: #1E293B;
     transform: rotate(-2deg);
   }
   .card-proj-yellow {
-    background-color: #1E293B;
     transform: rotate(2deg);
   }
   .card-proj-pink {
-    background-color: #1E293B;
     transform: rotate(-1deg);
   }
   .project-card:hover {

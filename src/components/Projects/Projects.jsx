@@ -4,7 +4,7 @@ import './Projects.css';
 const Projects = () => {
     const [title, setTitle] = useState('');
     const [isDeleting, setIsDeleting] = useState(false);
-    const fullTitle = 'Featured Works';
+    const fullTitle = 'Featured Work :';
 
     useEffect(() => {
         const handleTyping = () => {
@@ -30,24 +30,24 @@ const Projects = () => {
     }, [title, isDeleting, fullTitle]);
 
     const projectData = [
-        {
-          title: 'REV-X | Peer Project Review',
-          image: '/project-revx.png', // You'll need to add this image to /public
-          githubUrl: 'https://github.com/saumya-shahi/rev-x',
-          color: 'blue'
-        },
-        {
-          title: 'IIITK Placement Cell Website',
-          image: '/project-placement.png', // You'll need to add this image to /public
-          githubUrl: 'https://github.com/saumya-shahi/placement-cell-website',
-          color: 'yellow'
-        },
-        {
-            title: 'MusicBlocks v4 (Masonry)',
-            image: '/project-musicblocks.png', // You'll need to add this image to /public
-            githubUrl: 'https://github.com/sugarlabs/musicblocks-v4',
-            color: 'pink'
-        },
+      {
+        title: 'MusicBlocks v4 (Masonry)',
+        image: '/project-musicblocks.png', // You'll need to add this image to /public
+        githubUrl: 'https://github.com/sugarlabs/musicblocks-v4',
+        color: 'pink'
+      },
+      {
+        title: 'REV-X | Peer Project Review',
+        image: '/project-revx.png', // You'll need to add this image to /public
+        githubUrl: 'https://github.com/saumyashahi/RevX',
+        color: 'blue'
+      },
+      {
+        title: 'IIITK Placement Cell Website',
+        image: '/project-placement.png', // You'll need to add this image to /public
+        githubUrl: 'https://github.com/saumyashahi/IIITK-Placement-Website',
+        color: 'yellow'
+      }
       ];
 
   return (
@@ -77,11 +77,6 @@ const Projects = () => {
             </div>
           </div>
         ))}
-      </div>
-      <div className="portfolio-button-container">
-        <a href="https://github.com/saumya-shahi" target="_blank" rel="noopener noreferrer" className="portfolio-button">
-            Check my Portfolio
-        </a>
       </div>
     </section>
   );

@@ -1,58 +1,47 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import './Navbar.css';
 import { FaBars, FaTimes } from 'react-icons/fa';
 
 const Navbar = () => {
   const [click, setClick] = useState(false);
-  const [theme, setTheme] = useState('dark');
 
   const handleClick = () => setClick(!click);
   const closeMobileMenu = () => setClick(false);
 
-  const toggleTheme = () => {
-    const newTheme = theme === 'light' ? 'dark' : 'light';
-    setTheme(newTheme);
-    document.documentElement.setAttribute('data-theme', newTheme);
-  };
-
-  useEffect(() => {
-    document.documentElement.setAttribute('data-theme', theme);
-  }, [theme]);
-
   return (
     <nav className="navbar">
-      <a href="/" className="navbar-logo" onClick={closeMobileMenu}>
+      <Link to="/" className="navbar-logo" onClick={closeMobileMenu}>
         Saumya Shahi
-      </a>
+      </Link>
       <div className="menu-icon" onClick={handleClick}>
         {click ? <FaTimes /> : <FaBars />}
       </div>
       <ul className={click ? 'nav-menu active' : 'nav-menu'}>
         <li className="nav-item">
-          <a href="#about" className="nav-links" onClick={closeMobileMenu}>
+          <Link to="/about" className="nav-links" onClick={closeMobileMenu}>
             About
-          </a>
+          </Link>
         </li>
-        <li className="nav-item">
-          <a href="#work" className="nav-links" onClick={closeMobileMenu}>
+        {/* <li className="nav-item">
+          <Link to="/work" className="nav-links" onClick={closeMobileMenu}>
             Work
-          </a>
+          </Link>
+        </li> */}
+        <li className="nav-item">
+          <Link to="/blog" className="nav-links" onClick={closeMobileMenu}>
+            Blog
+          </Link>
         </li>
         <li className="nav-item">
-          <a href="#blogs" className="nav-links" onClick={closeMobileMenu}>
-            Blogs
-          </a>
-        </li>
-        <li className="nav-item">
-          <a href="#gallery" className="nav-links" onClick={closeMobileMenu}>
+          <Link to="/gallery" className="nav-links" onClick={closeMobileMenu}>
             Gallery
-          </a>
+          </Link>
         </li>
       </ul>
-      {/* <button className="theme-toggle-button" onClick={toggleTheme}>
-        {theme === 'light' ? <FaMoon /> : <FaSun />}
-      </button> */}
-      <button className="connect-button">Connect with me!</button>
+      <div className="navbar-actions">
+        <button className="connect-button">Connect with me!</button>
+      </div>
     </nav>
   );
 };
