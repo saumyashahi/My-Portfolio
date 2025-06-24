@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import './Blog.css';
 
 const parseFrontmatter = (text) => {
@@ -64,12 +65,37 @@ const Blog = () => {
   }, []);
 
   if (loading) {
-    return <div className="blog-page-container"><p>Loading posts...</p></div>;
+    return (
+      <div className="blog-page-container">
+        <h1 className="blog-title text-accent">My Musings</h1>
+        <motion.h1 
+          className="blog-title text-accent"
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.0, ease: "easeInOut" }}
+        >
+          
+        </motion.h1>
+        <p className="blog-subtitle">A collection of thoughts on technology, creativity, and life.</p>
+        <div className="blog-list">
+          <div className="skeleton-blog-card" style={{maxWidth: 800, margin: '0 auto', width: '100%'}} />
+          <div className="skeleton-blog-card" style={{maxWidth: 800, margin: '0 auto', width: '100%'}} />
+          <div className="skeleton-blog-card" style={{maxWidth: 800, margin: '0 auto', width: '100%'}} />
+        </div>
+      </div>
+    );
   }
 
   return (
     <div className="blog-page-container">
-      <h1 className="blog-title text-accent">My Musings</h1>
+      <motion.h1 
+        className="blog-title text-accent"
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1.0, ease: "easeInOut" }}
+      >
+        My Musings
+      </motion.h1>
       <p className="blog-subtitle">A collection of thoughts on technology, creativity, and life.</p>
       
       <div className="blog-list">

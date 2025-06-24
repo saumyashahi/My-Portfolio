@@ -131,4 +131,33 @@
 .markdown-content pre code {
   background-color: transparent;
   padding: 0;
+}
+
+.skeleton-title {
+  width: 60%;
+  height: 2.8rem;
+  background: linear-gradient(90deg, #ececec 25%, #f3f3f3 50%, #ececec 75%);
+  border-radius: 8px;
+  margin: 40px auto 20px auto;
+  animation: skeleton-loading 1.2s infinite linear;
+}
+.skeleton-date {
+  width: 30%;
+  height: 1.2rem;
+  background: linear-gradient(90deg, #ececec 25%, #f3f3f3 50%, #ececec 75%);
+  border-radius: 6px;
+  margin: 0 auto 30px auto;
+  animation: skeleton-loading 1.2s infinite linear;
+}
+.skeleton-content {
+  width: 100%;
+  height: 220px;
+  background: linear-gradient(90deg, #ececec 25%, #f3f3f3 50%, #ececec 75%);
+  border-radius: 12px;
+  margin: 0 auto;
+  animation: skeleton-loading 1.2s infinite linear;
+}
+@keyframes skeleton-loading {
+  0% { background-position: -200px 0; }
+  100% { background-position: calc(200px + 100%) 0; }
 } 

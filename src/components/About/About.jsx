@@ -1,4 +1,5 @@
 import React, { useRef, useEffect } from 'react';
+import { motion } from 'framer-motion';
 import './About.css';
 import { FaGraduationCap, FaCode, FaFlask, FaRocket, FaShieldAlt, FaSearch, FaPalette, FaLightbulb, FaLaptopCode, FaUserSecret, FaCodeBranch, FaUniversity, FaUserShield } from 'react-icons/fa';
 
@@ -28,7 +29,7 @@ const journeyData = [
     "This summer has been my most intense yet — balancing Google Summer of Code with Sugar Labs (Music Blocks Masonry Module), continuing research at NITK, brainstorming every single idea, nights spent in fixing bugs (yes, vibe coding up this website) and attending the ACM India Summer School on Cryptography at IIT Bombay. It's been sleepless, surreal, and transformative. ",
   },
   {
-    icon: <FaUserSecret />,
+    icon: <FaRocket />,
     title: 'Excited for the next chapter',
     description:
     "I'm now stepping into my third year with more clarity and hunger. I want to publish my research, explore and learn more by doing research internships, and build tools that make security simple, accessible, and futuristic. I am thankful to all that happened this summer and the way it all aligned, my interest in the research feild has grown even higher and not just theoretical, I want to put every piece of work I do to solve a problem and make a positive impact in the community. Looking forward to the next chapter of my journey.",
@@ -66,6 +67,12 @@ const About = () => {
 
   return (
     <section className="about-section">
+      <motion.div 
+        className="about-header"
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1.0, ease: "easeInOut" }}
+      >
       <div className="about-header">
         <h1 className="about-title">About Me</h1>
         <svg className="arrow" width="62" height="62" viewBox="0 0 62 62" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -89,6 +96,7 @@ const About = () => {
           </p>
         </div>
       </div>
+      </motion.div>
 
       <div className="journey-section">
         <h2 className="journey-title text-accent">My Journey So Far</h2>

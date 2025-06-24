@@ -38,7 +38,13 @@ const BlogPost = () => {
   }, [slug]);
 
   if (loading) {
-    return <div className="blog-post-container">Loading...</div>;
+    return (
+      <div className="blog-post-container">
+        <div className="skeleton-title" />
+        <div className="skeleton-date" />
+        <div className="skeleton-content" />
+      </div>
+    );
   }
 
   return (
