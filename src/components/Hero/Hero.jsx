@@ -85,6 +85,7 @@ const Hero = () => {
           src="/saumya_picture.jpg"
           alt="Developer"
           className="hero-image"
+          loading="lazy"
         />
         <div className="sparkle one"></div>
         <div className="sparkle two"></div>

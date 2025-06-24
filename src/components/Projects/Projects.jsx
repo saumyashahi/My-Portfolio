@@ -68,7 +68,12 @@ const Projects = () => {
             <div className="project-bubble bubble-1"></div>
             <div className="project-bubble bubble-2"></div>
             <div className="project-image-container">
-                <img src={project.image} alt={project.title} className="project-image" />
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="project-image"
+                  loading="lazy"
+                />
             </div>
             <div className="project-info">
               <h3 className="project-title">{project.title}</h3>

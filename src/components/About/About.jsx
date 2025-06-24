@@ -79,7 +79,7 @@ const About = () => {
           <div className="image-card card-1"></div>
           <div className="image-card card-2"></div>
           <div className="image-card card-3">
-            <img src="https://avatars.githubusercontent.com/u/147405306?v=4" alt="Saumya Shahi" />
+            <img src="https://avatars.githubusercontent.com/u/147405306?v=4" alt="Saumya Shahi" loading="lazy" />
           </div>
         </div>
         <div className="about-text">

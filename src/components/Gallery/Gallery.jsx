@@ -74,6 +74,7 @@ const Gallery = () => {
               <img 
                 src={getImagePath(activeCategory, imageName)} 
                 alt={`${activeCategory} photo ${index + 1}`} 
+                loading="lazy"
               />
             </motion.div>
           ))}

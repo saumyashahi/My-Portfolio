@@ -104,7 +104,7 @@ const ProjectCard = ({ project }) => {
               <h4>Project Gallery</h4>
               <div className="mini-gallery">
                 {project.galleryImages.map((img, index) => (
-                  <img key={index} src={img} alt={`${project.title} gallery ${index + 1}`} />
+                  <img key={index} src={img} alt={`${project.title} gallery ${index + 1}`} loading="lazy" />
                 ))}
               </div>
             </>

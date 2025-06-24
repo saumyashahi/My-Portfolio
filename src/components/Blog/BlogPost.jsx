@@ -46,7 +46,12 @@ const BlogPost = () => {
       <h1 className="blog-post-title">{post.frontmatter.title}</h1>
       <p className="blog-post-date">{new Date(post.frontmatter.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
       <div className="markdown-content">
-        <ReactMarkdown remarkPlugins={[remarkGfm]}>{post.content}</ReactMarkdown>
+        <ReactMarkdown 
+          remarkPlugins={[remarkGfm]}
+          components={{
+            img: (props) => <img {...props} loading="lazy" />
+          }}
+        >{post.content}</ReactMarkdown>
       </div>
     </div>
   );
