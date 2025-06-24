@@ -1,0 +1,97 @@
+.loader-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  width: 100vw;
+  height: 100vh;
+  background: var(--background-color, #fff);
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.4s;
+}
+
+.loader-3d-ball {
+  position: relative;
+  width: 90px;
+  height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  perspective: 400px;
+}
+
+.loader-ball-core {
+  width: 60px;
+  height: 60px;
+  background: radial-gradient(circle at 30% 30%, #fff 0%, var(--accent-color) 70%);
+  border-radius: 50%;
+  box-shadow: 0 2px 6px 0 var(--accent-color), 0 1px 3px #fff3;
+  z-index: 2;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  animation: loader-bounce 1.2s infinite alternate cubic-bezier(.6,1.4,.6,1);
+}
+
+@keyframes loader-bounce {
+  0% { box-shadow: 0 4px 16px 0 var(--accent-color), 0 1px 4px #fff3; }
+  100% { box-shadow: 0 8px 24px 0 var(--accent-color), 0 2px 8px #fff3; }
+}
+
+.loader-bubble {
+  position: absolute;
+  border-radius: 50%;
+  background: var(--accent-color);
+  opacity: 0.6;
+  box-shadow: 0 1px 3px var(--accent-color);
+}
+
+.bubble1 {
+  width: 18px; height: 18px;
+  left: 0; top: 50%;
+  transform: translateY(-50%);
+  animation: orbit1 1.8s linear infinite;
+}
+.bubble2 {
+  width: 12px; height: 12px;
+  right: 0; top: 20%;
+  animation: orbit2 2.2s linear infinite;
+}
+.bubble3 {
+  width: 10px; height: 10px;
+  left: 20%; top: 0;
+  animation: orbit3 2.5s linear infinite;
+}
+.bubble4 {
+  width: 14px; height: 14px;
+  right: 10%; bottom: 0;
+  animation: orbit4 2.1s linear infinite;
+}
+.bubble5 {
+  width: 8px; height: 8px;
+  left: 70%; bottom: 10%;
+  animation: orbit5 1.7s linear infinite;
+}
+
+@keyframes orbit1 {
+  0% { transform: translateY(-50%) rotate(0deg) translateX(40px) scale(1); }
+  100% { transform: translateY(-50%) rotate(360deg) translateX(40px) scale(1.1); }
+}
+@keyframes orbit2 {
+  0% { transform: rotate(0deg) translateX(38px) scale(1); }
+  100% { transform: rotate(360deg) translateX(38px) scale(1.1); }
+}
+@keyframes orbit3 {
+  0% { transform: rotate(0deg) translateY(-32px) scale(1); }
+  100% { transform: rotate(360deg) translateY(-32px) scale(1.1); }
+}
+@keyframes orbit4 {
+  0% { transform: rotate(0deg) translateY(32px) scale(1); }
+  100% { transform: rotate(360deg) translateY(32px) scale(1.1); }
+}
+@keyframes orbit5 {
+  0% { transform: rotate(0deg) translateX(-28px) scale(1); }
+  100% { transform: rotate(360deg) translateX(-28px) scale(1.1); }
+} 
