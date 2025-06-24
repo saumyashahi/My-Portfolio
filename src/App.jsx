@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { Routes, Route } from 'react-router-dom';
+import React, { useEffect, useState, useRef } from 'react';
+import { Routes, Route, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero/Hero';
 import Experience from './components/Experience/Experience';
@@ -17,15 +17,26 @@ import Loader from './components/Loader';
 import Modal from './components/Modal/Modal';
 import './App.css';
 
-const HomePage = ({ setIsModalOpen }) => {
+// Only show loader on first load (not on internal navigation)
+const useInitialLoader = () => {
   const [loading, setLoading] = useState(true);
-  const [viewCount, setViewCount] = useState(null);
+  const isFirstLoad = useRef(true);
 
   useEffect(() => {
-    // Simulate loading for loader animation
-    const timer = setTimeout(() => setLoading(false), 1800);
-    return () => clearTimeout(timer);
+    if (isFirstLoad.current) {
+      const timer = setTimeout(() => setLoading(false), 1800);
+      isFirstLoad.current = false;
+      return () => clearTimeout(timer);
+    } else {
+      setLoading(false);
+    }
   }, []);
+
+  return loading;
+};
+
+const HomePage = ({ setIsModalOpen }) => {
+  const [viewCount, setViewCount] = useState(null);
 
   useEffect(() => {
     // Fetch view count from countapi.xyz
@@ -33,8 +44,6 @@ const HomePage = ({ setIsModalOpen }) => {
       .then(res => res.json())
       .then(data => setViewCount(data.value));
   }, []);
-
-  if (loading) return <Loader />;
 
   return (
     <>
@@ -54,12 +63,32 @@ const HomePage = ({ setIsModalOpen }) => {
   );
 };
 
+// Enhanced ScrollToTop: supports window and fallback to main if needed
+function ScrollToTop() {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    // Try window scroll first
+    window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+    // Fallback: scroll main if window didn't scroll
+    setTimeout(() => {
+      const main = document.querySelector('main');
+      if (main && main.scrollTop > 0) {
+        main.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+      }
+    }, 100);
+  }, [pathname]);
+  return null;
+}
+
 function App() {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const loading = useInitialLoader();
+  if (loading) return <Loader />;
   return (
     <ThemeProvider>
       <CustomCursor />
       <Navbar setIsModalOpen={setIsModalOpen} />
+      <ScrollToTop />
       <main>
         <Routes>
           <Route path="/" element={<HomePage setIsModalOpen={setIsModalOpen} />} />
