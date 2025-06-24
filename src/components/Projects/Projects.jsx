@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import './Projects.css';
 
 const Projects = () => {
@@ -31,13 +32,13 @@ const Projects = () => {
 
     const projectData = [
       {
-        title: 'MusicBlocks v4 (Masonry)',
+        title: 'MusicBlocks v4 (Masonry) | SugarLabs',
         image: '/project-musicblocks.png', // You'll need to add this image to /public
         githubUrl: 'https://github.com/sugarlabs/musicblocks-v4',
         color: 'pink'
       },
       {
-        title: 'REV-X | Peer Project Review',
+        title: 'REV-X | Peer Project Review Website',
         image: '/project-revx.png', // You'll need to add this image to /public
         githubUrl: 'https://github.com/saumyashahi/RevX',
         color: 'blue'
@@ -77,6 +78,12 @@ const Projects = () => {
             </div>
           </div>
         ))}
+      </div>
+
+      <div className="explore-button-container">
+        <Link to="/work" className="explore-button">
+          Explore all projects
+        </Link>
       </div>
     </section>
   );
