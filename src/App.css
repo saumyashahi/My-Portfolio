@@ -1,1 +1,71 @@
+/* App.css */
+.App {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex-grow: 1;
+  padding-top: 10px; /* Account for fixed navbar height + top margin */
+}
+
+.closing-cta {
+  text-align: center;
+  margin: 48px auto 0 auto;
+  padding: 32px 0 16px 0;
+  color: var(--accent-color);
+  font-family: 'Playfair Display', serif;
+  background: none;
+}
+
+.closing-cta h2 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.closing-cta p {
+  font-size: 1.1rem;
+  color: var(--text-color);
+  margin: 0 auto;
+}
+.closing-cta span {
+  color: var(--accent-color);
+}
+
+.connect-btn {
+  display: inline-block;
+  margin-top: 0rem;
+  padding: 0px 0px;
+  background: var(--background-color);
+  color: var(--text-color);
+  border: none;
+  border-radius: 1px;
+  font-size: 1.1rem;
+  font-family: 'Playfair Display', serif;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 2px 8px var(--shadow-color);
+}
+
+.connect-btn:hover {
+  background: var(--background-color);
+  color: var(--accent-color);
+  transform: translateY(0px) scale(1.04);
+  transition: background 0.2s, color 0.2s, transform 0.2s;
+  cursor: pointer;
+}
+
+.cta-btn:active,
+.connect-btn:active,
+.project-button:active,
+.explore-button:active,
+.portfolio-button:active,
+.expand-button:active,
+.theme-toggle-button:active,
+.connect-button:active {
+  transform: scale(0.96) perspective(600px) rotateX(2deg);
+  box-shadow: 0 2px 8px var(--shadow-color);
+}
+
 /* No content */ 

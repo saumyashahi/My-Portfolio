@@ -17,11 +17,11 @@ const Footer = () => {
             <a href="https://github.com/saumyashahi" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><FaGithub /></a>
             <a href="https://linkedin.com/in/saumya-shahi" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><FaLinkedin /></a>
             <a href="mailto:saumyashahi05@gmail.com" aria-label="Email"><FaEnvelope /></a>
-          </div>
-          <button className="theme-toggle-button" onClick={toggleTheme} aria-label="Toggle theme">
+           </div>
+          {/* <button className="theme-toggle-button" onClick={toggleTheme} aria-label="Toggle theme">
             {theme === 'light' ? <FaMoon /> : <FaSun />}
-          </button>
-        </div>
+          </button> */}
+         </div>
       </div>
     </footer>
   );

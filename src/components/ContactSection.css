@@ -1,0 +1,103 @@
+.contact-section {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 60px 0 40px 0;
+  background: none;
+}
+
+.contact-cta-card {
+  min-width: 260px;
+  max-width: 400px;
+  margin: 0 auto;
+  background: var(--card-background);
+  border-left: 5px solid var(--accent-color);
+  border-radius: 8px;
+  box-shadow: 0 4px 8px var(--shadow-color);
+  text-align: center;
+  padding: 2.5rem 1.5rem 2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.connect-btn {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 12px 32px;
+  background: var(--accent-color);
+  color: #fff;
+  border: none;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 2px 8px var(--shadow-color);
+  transition: background 0.2s, color 0.2s, transform 0.2s;
+  cursor: pointer;
+}
+
+.connect-btn:hover {
+  background: var(--text-color);
+  color: var(--accent-color);
+  transform: translateY(-2px) scale(1.04);
+}
+
+.contact-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.2rem;
+  color: var(--accent-color);
+  margin-bottom: 0.5rem;
+}
+
+.contact-message {
+  font-size: 1.15rem;
+  color: var(--text-color);
+  margin-bottom: 0.5rem;
+}
+
+.contact-email {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.1rem;
+  color: var(--accent-color);
+  text-decoration: none;
+  font-weight: 600;
+  border-bottom: 1px dashed var(--accent-color);
+  transition: color 0.2s;
+}
+
+.contact-email:hover {
+  color: var(--text-color);
+  border-bottom: 1px solid var(--accent-color);
+}
+
+.contact-socials {
+  display: flex;
+  gap: 1.2rem;
+  justify-content: center;
+  margin-top: 0.5rem;
+}
+
+.contact-socials a {
+  color: var(--accent-color);
+  font-size: 1.7rem;
+  transition: color 0.2s, transform 0.2s;
+}
+
+.contact-socials a:hover {
+  color: var(--text-color);
+  transform: scale(1.15);
+}
+
+@media (max-width: 600px) {
+  .contact-cta-card {
+    padding: 1.5rem 0.5rem 1.2rem 0.5rem;
+  }
+  .contact-title {
+    font-size: 1.3rem;
+  }
+} 

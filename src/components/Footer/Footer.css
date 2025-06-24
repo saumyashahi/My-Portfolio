@@ -1,9 +1,9 @@
 .footer {
   width: 100%;
   padding: 1rem 0;
-  margin-top: 5rem;
+  margin-top: 0rem;
   background-color: var(--navbar-background);
-  color: var(--text-color);
+  color: var(--accent-color);
   border-top-left-radius: 40px;
   border-top-right-radius: 40px;
   border-top: 1px solid var(--navbar-border);
@@ -43,7 +43,7 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  color: var(--text-color);
+  color: var(--accent-color);
   font-size: 1.3rem;
   background: transparent;
   border: none;
@@ -54,7 +54,7 @@
 
 .footer-socials a:hover,
 .footer .theme-toggle-button:hover {
-  color: var(--accent-color);
+  color: var(--text-color);
   transform: scale(1.1);
   background-color: transparent;
 }

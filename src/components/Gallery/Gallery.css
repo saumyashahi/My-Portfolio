@@ -1,90 +1,87 @@
 /* Gallery.css - Photowall Vibe */
 .gallery-container {
-    padding: 120px 5% 5%;
-    max-width: 1600px;
-    margin: 0 auto;
+    padding: 80px 5%;
+    text-align: center;
   }
   
   .gallery-title {
     font-family: 'Playfair Display', serif;
-    font-size: 3.5rem;
-    text-align: center;
-    margin-bottom: 60px;
+    font-size: 3rem;
+    margin-bottom: 10px;
+  }
+  
+  .gallery-subtitle {
+    font-size: 1.2rem;
+    color: var(--text-color-secondary);
+    margin-bottom: 40px;
+  }
+  
+  .gallery-filter-buttons {
+    margin-bottom: 40px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+  }
+  
+  .filter-btn {
+    background-color: transparent;
+    border: 1px solid var(--navbar-border);
     color: var(--text-color);
-  }
-  
-  .photowall-grid {
-    line-height: 0;
-    column-count: 4; /* Default to 4 columns */
-    column-gap: 20px;
-  }
-  
-  .photowall-item {
-    position: relative;
-    display: inline-block;
-    width: 100%;
-    margin-bottom: 20px;
+    padding: 10px 25px;
+    border-radius: 25px;
+    font-family: 'Poppins', sans-serif;
     cursor: pointer;
-    overflow: hidden; /* Ensures the overlay and caption are contained */
-    border-radius: 12px;
-    box-shadow: 0 8px 20px var(--shadow-color);
+    transition: all 0.3s ease;
   }
   
-  .photowall-item img {
+  .filter-btn:hover {
+    background-color: var(--accent-color);
+    color: #fff;
+    border-color: var(--accent-color);
+  }
+  
+  .filter-btn.active {
+    background-color: var(--accent-color);
+    color: #fff;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 15px var(--accent-color-faded);
+  }
+  
+  /* Masonry Grid Styles */
+  .my-masonry-grid {
+    display: -webkit-box; /* Not needed if autoprefixing */
+    display: -ms-flexbox; /* Not needed if autoprefixing */
+    display: flex;
+    margin-left: -30px; /* gutter size offset */
+    width: auto;
+  }
+  
+  .my-masonry-grid_column {
+    padding-left: 30px; /* gutter size */
+    background-clip: padding-box;
+  }
+  
+  /* Style your items */
+  .gallery-item {
+    margin-bottom: 30px;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px var(--shadow-color);
+  }
+  
+  .gallery-item img {
     width: 100%;
-    height: auto;
-    border-radius: 12px;
+    display: block;
     transition: transform 0.4s ease;
   }
   
-  .photowall-item:hover img {
+  .gallery-item:hover img {
     transform: scale(1.05);
   }
   
-  .photowall-caption {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
-    color: #fff;
-    padding: 30px 20px 20px;
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.4s ease, transform 0.4s ease;
-  }
-  
-  .photowall-item:hover .photowall-caption {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  
-  .photowall-caption h3 {
-    margin: 0;
-    font-size: 1.2rem;
-    font-weight: 600;
-  }
-  
-  /* Responsive adjustments */
-  @media (max-width: 1200px) {
-    .photowall-grid {
-      column-count: 3;
-    }
-  }
-  
-  @media (max-width: 768px) {
-    .photowall-grid {
-      column-count: 2;
-    }
-  }
-  
-  @media (max-width: 480px) {
-    .photowall-grid {
-      column-count: 1;
-    }
-  }
   /* New styles for Gallery Sections */
-.gallery-section {
+  .gallery-section {
     margin-bottom: 80px;
   }
   

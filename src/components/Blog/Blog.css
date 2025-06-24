@@ -1,6 +1,6 @@
 .blog-page-container {
-  padding: 120px 5% 5%;
-  max-width: 800px;
+  padding: 80px 5%;
+  max-width: 1200px;
   margin: 0 auto;
 }
 
@@ -20,18 +20,22 @@
 .blog-list {
   display: grid;
   gap: 30px;
+  margin-top: 50px;
 }
 
 .blog-post-card {
   display: block;
+  background-color: var(--card-background);
+  border: 1px solid var(--navbar-border);
+  border-radius: 15px;
+  padding: 30px;
   text-decoration: none;
   color: inherit;
-  background-color: var(--card-background);
-  padding: 30px;
-  border-radius: 15px;
-  border: 1px solid transparent;
-  transition: all 0.3s ease;
   box-shadow: 0 5px 15px var(--shadow-color);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  max-width: 800px;
+  margin: 0 auto;
+  width: 100%;
 }
 
 .blog-post-card:hover {
@@ -44,7 +48,7 @@
   font-family: 'Playfair Display', serif;
   font-size: 1.8rem;
   margin-bottom: 10px;
-  color: var(--text-color);
+  color: var(--accent-color);
 }
 
 .post-date {

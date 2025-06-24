@@ -1,0 +1,92 @@
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease;
+}
+
+.modal-content {
+  background-color: var(--navbar-background);
+  padding: 40px;
+  border-radius: 20px;
+  width: 90%;
+  max-width: 500px;
+  position: relative;
+  box-shadow: 0 10px 30px var(--shadow-color), 0 2px 8px var(--accent-color);
+  border: 1px solid var(--navbar-border);
+  text-align: center;
+  animation: modalPop 0.5s cubic-bezier(.4,1.4,.6,1);
+}
+
+.modal-close-button {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: var(--text-color);
+}
+
+.modal-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.2rem;
+  margin-bottom: 10px;
+}
+
+.modal-subtitle {
+  color: var(--text-secondary);
+  margin-bottom: 30px;
+}
+
+.modal-links {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.modal-link-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: var(--text-color);
+  font-size: 1.2rem;
+  padding: 15px;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  flex-grow: 1;
+}
+
+.modal-link-item:hover {
+  background-color: var(--card-background);
+  color: var(--accent-color);
+}
+
+.modal-link-item svg {
+  font-size: 2.5rem;
+  filter: drop-shadow(0 2px 4px var(--accent-color));
+  transition: filter 0.2s;
+}
+
+.modal-link-item:hover svg {
+  filter: drop-shadow(0 4px 8px var(--accent-color));
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes modalPop {
+  0% { opacity: 0; transform: scale(0.85) rotateY(-12deg); }
+  100% { opacity: 1; transform: scale(1) rotateY(0deg); }
+} 
