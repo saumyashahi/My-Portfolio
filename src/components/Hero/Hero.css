@@ -9,6 +9,13 @@
     color: var(--text-color);
     position: relative;
     z-index: 1;
+    overflow-x: hidden;
+    overflow-y: hidden;
+  }
+  
+  html, body {
+    overflow-x: hidden;
+   
   }
   
   .hero-content {
@@ -153,11 +160,11 @@
   
   .sparkle.one {
       top: 10%;
-      left: -5%;
+      left: 0;
   }
   .sparkle.two {
       top: 20%;
-      right: -5%;
+      right: 0;
       animation-delay: 1.5s;
   }
   .sparkle.three {
