@@ -2,8 +2,13 @@ import React, { useEffect, useState } from 'react';
 import { useTheme } from '../../contexts/ThemeContext';
 import './CustomCursor.css';
 
+const getCenter = () => ({
+  x: window.innerWidth / 2,
+  y: window.innerHeight / 2
+});
+
 const CustomCursor = () => {
-    const [position, setPosition] = useState({ x: 0, y: 0 });
+    const [position, setPosition] = useState(getCenter());
     const [isHovering, setIsHovering] = useState(false);
     const { theme } = useTheme();
 
