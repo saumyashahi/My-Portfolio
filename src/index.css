@@ -3,7 +3,7 @@
 :root {
   --background-color: #ffffffc1;
   --text-color: #000000;
-  --accent-color: #D988B9;
+  --accent-color: #d988b9;
   --dot-color: #000000e8;
   --dot-size: 2px;
   --shadow-color: rgba(0, 0, 0, 0.1);
@@ -17,14 +17,14 @@
 [data-theme='dark'] {
   --background-color: #000000eb;
   --text-color: #ffffff;
-  --accent-color: #D988B9;
-  --dot-color: #ffffff44;
+  --accent-color: #d988b9;
+  --dot-color: #ffffff9c;
   --shadow-color: rgba(217, 136, 185, 0.034);
   --navbar-background: #000000;
   --navbar-border: #fffffff3;
   --theme-toggle-bg: #040404;
   --theme-toggle-hover: #313131;
-  --card-background: rgba(255, 255, 255, 0.062);
+  --card-background: rgba(255, 255, 255, 0.129);
 }
 
 * {
@@ -34,15 +34,19 @@
   cursor: none !important;
 }
 
-h1 {
-  font-family: 'Playfair Display', serif;
+h1, h2, h3, h4, h5, h6 {
+  font-family: inherit;
 }
 
-h2, h3, h4, h5, h6 {
-  font-family: 'Playfair Display', serif;
-}
-
-a, button, [role="button"] {
+a,
+button,
+[role="button"],
+input,
+textarea,
+select,
+a *,
+button *,
+[role="button"] * {
   cursor: none !important;
 }
 
@@ -50,12 +54,84 @@ body {
   font-family: 'Poppins', sans-serif;
   background-color: var(--background-color);
   color: var(--text-color);
-  background-image: radial-gradient(var(--dot-color) 0.5px, transparent 0);
-  background-size: 18px 18px;
+  background-image: url('/web-bg.jpg') ;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   background-attachment: fixed;
   transition: background-color 0.3s, color 0.3s;
+  position: relative;
+  z-index: 1;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(255, 255, 255, 0.085);
+  pointer-events: none;
+  z-index: 0;
 }
 
 .text-accent {
   color: var(--accent-color);
+}
+
+.parallax-section {
+  position: relative;
+  width: 100vw;
+  min-height: 260px;
+  height: 260px;
+  overflow: hidden;
+  margin: 0 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.simple-quote-content {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 30px;
+  text-align: center;
+  color: var(--text-color);
+}
+
+.simple-parallax-quote {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: var(--text-color);
+  background: none;
+  border-radius: 0;
+  padding: 0;
+  box-shadow: none;
+  margin: 0 auto;
+  line-height: 1.7;
+  max-width: 700px;
+  border: none;
+  letter-spacing: 0.01em;
+}
+
+.parallax-quote-accent {
+  color: var(--accent-color);
+  font-size: 1.08em;
+  font-weight: 600;
+  letter-spacing: 1px;
+  display: block;
+  margin-top: 1.1rem;
+}
+
+@media (max-width: 700px) {
+  .parallax-section {
+    min-height: 160px;
+    height: 160px;
+  }
+  .simple-parallax-quote {
+    font-size: 1rem;
+    padding: 0;
+  }
 }
