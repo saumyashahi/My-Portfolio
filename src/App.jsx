@@ -15,6 +15,7 @@ import CustomCursor from './components/CustomCursor/CustomCursor';
 import { ThemeProvider } from './contexts/ThemeContext';
 import Loader from './components/Loader';
 import Modal from './components/Modal/Modal';
+import { Analytics } from '@vercel/analytics/react';
 import './App.css';
 
 // Only show loader on first load (not on internal navigation)
@@ -94,6 +95,7 @@ function App() {
         </main>
         <Footer />
         <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+        <Analytics />
       </div>
     </ThemeProvider>
   );
