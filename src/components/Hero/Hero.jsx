@@ -1,12 +1,17 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './Hero.css';
-import { FaCode, FaMapMarkerAlt } from 'react-icons/fa';
+import { FaCode, FaMapMarkerAlt, FaArrowRight } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 const Hero = () => {
   const [loopNum, setLoopNum] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
   const [text, setText] = useState('');
   const toRotate = ['Quantum Researcher', 'GSoC Contributor', 'Cybersecurity Enthusiast'];
+
+  // Parallax state
+  const [parallax, setParallax] = useState(0);
+  const heroRef = useRef();
 
   useEffect(() => {
     const handleType = () => {
@@ -33,6 +38,18 @@ const Hero = () => {
     return () => clearTimeout(timeout);
   }, [text, isDeleting, loopNum]);
 
+  // Parallax effect
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!heroRef.current) return;
+      const rect = heroRef.current.getBoundingClientRect();
+      const offset = Math.max(0, -rect.top);
+      setParallax(offset);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
     <section className="hero-section">
       <div className="hero-content">
@@ -48,11 +65,15 @@ const Hero = () => {
           <span className="cursor">|</span>
         </p>
         <p className="hero-sub-pitch anim-load anim-delay-4">
-          From C++ fundamentals to quantum cryptography, I thrive on turning complex challenges into elegant, secure solutions.
+          From C++, web dev to post quantum crypto, I turn complex challenges into elegant & secure solutions.
         </p>
         <div className="hero-buttons anim-load anim-delay-5">
-          <button className="hero-btn-primary">Connect with me!</button>
-          <button className="hero-btn-secondary">See my Portfolio</button>
+          <Link to="/work" className="cta-btn primary">
+            See My Work
+          </Link>
+          <Link to="/blog" className="cta-btn secondary">
+            Read My Blog <FaArrowRight className="btn-icon" />
+          </Link>
         </div>
         {/* <div className="hero-location">
           <FaMapMarkerAlt />
