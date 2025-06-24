@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState, useRef, useLayoutEffect } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero/Hero';
@@ -63,19 +63,11 @@ const HomePage = ({ setIsModalOpen }) => {
   );
 };
 
-// Enhanced ScrollToTop: supports window and fallback to main if needed
+// Enhanced ScrollToTop: scrolls instantly to top before paint
 function ScrollToTop() {
   const { pathname } = useLocation();
-  useEffect(() => {
-    // Try window scroll first
-    window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
-    // Fallback: scroll main if window didn't scroll
-    setTimeout(() => {
-      const main = document.querySelector('main');
-      if (main && main.scrollTop > 0) {
-        main.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
-      }
-    }, 100);
+  useLayoutEffect(() => {
+    window.scrollTo(0, 0);
   }, [pathname]);
   return null;
 }
@@ -86,21 +78,23 @@ function App() {
   if (loading) return <Loader />;
   return (
     <ThemeProvider>
-      <CustomCursor />
-      <Navbar setIsModalOpen={setIsModalOpen} />
-      <ScrollToTop />
-      <main>
-        <Routes>
-          <Route path="/" element={<HomePage setIsModalOpen={setIsModalOpen} />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/work" element={<Work />} />
-          <Route path="/gallery" element={<Gallery />} />
-          <Route path="/blog" element={<Blog />} />
-          <Route path="/blog/:slug" element={<BlogPost />} />
-        </Routes>
-      </main>
-      <Footer />
-      <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+      <div className="App">
+        <CustomCursor />
+        <Navbar setIsModalOpen={setIsModalOpen} />
+        <ScrollToTop />
+        <main>
+          <Routes>
+            <Route path="/" element={<HomePage setIsModalOpen={setIsModalOpen} />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/work" element={<Work />} />
+            <Route path="/gallery" element={<Gallery />} />
+            <Route path="/blog" element={<Blog />} />
+            <Route path="/blog/:slug" element={<BlogPost />} />
+          </Routes>
+        </main>
+        <Footer />
+        <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+      </div>
     </ThemeProvider>
   );
 }

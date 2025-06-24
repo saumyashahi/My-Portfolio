@@ -43,7 +43,7 @@ const CustomCursor = () => {
     }, []);
 
     // Get stroke color based on theme
-    const strokeColor = theme === 'dark' ? '%23ffffff' : '%23000000';
+    const strokeColor = '%23000000';
 
     return (
         <div
