@@ -1,51 +1,76 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import './About.css';
-import { FaGraduationCap, FaCode, FaFlask, FaRocket, FaShieldAlt, FaSearch, FaPalette, FaLightbulb } from 'react-icons/fa';
+import { FaGraduationCap, FaCode, FaFlask, FaRocket, FaShieldAlt, FaSearch, FaPalette, FaLightbulb, FaLaptopCode, FaUserSecret, FaCodeBranch, FaUniversity, FaUserShield } from 'react-icons/fa';
 
 const journeyData = [
   {
     icon: <FaGraduationCap />,
-    date: 'First Year',
-    title: 'Discovering the Spark',
-    description: "Ventured into coding with C and C++, discovering a new passion for logic and problem-solving. First steps in web development with HTML, CSS, and JavaScript laid the groundwork for future projects.",
+    title: 'Finding My Rhythm in Code',
+    description:
+    "I entered college without any coding background. My first language was C with C++, and I still remember the satisfaction of solving my first logic problem and writing hello world in C. I soon began exploring web development and React, which helped me work on real projects like my college's placement portal where my major contribution was the design and navigation components. I volunteered for the GDSC team at IIIT Kottayam, where I discovered my love for design and UI/UX.",
   },
   {
-    icon: <FaCode />,
-    date: 'Second Year',
-    title: 'From Coursework to Creation',
-    description: "Contributed to my college's official placement portal and dove into open source with Sugar Labs, turning theoretical knowledge into real-world impact and setting my sights on Google Summer of Code.",
+    icon: <FaLaptopCode />,
+    title: 'Turning Curiosity Into Contribution',
+    description:
+      "In my second year, I dove into open source with Sugar Labs and Google Developer Student Clubs. I contributed to design and navigation components, started solving DSA problems, and mentored others in C++, while building confidence in collaborative tech work. I also found joy in sharing knowledge, helping juniors, and organizing cultural and coding events at IIIT Kottayam. I was the part of the organizing team of TEDxIIITKottayam, which taught me execution under pressure — it was a great experience.",
+  },
+      {
+    icon: <FaUserShield/>,
+    title: 'Diving Deeper: Quantum Meets Cyber',
+    description:
+    "The turning point came when I discovered Quantum Computing and Cybersecurity. It felt challenging, abstract, and beautiful. I stared exploring the field, and read a part of the book <i>Dancing with Qubits</i> by Scott Aaronson (trust me it really is as fun as it sounds), which made me fall in love with the endless possibilities quantum computing has to offer. So, I thought to myself, why not research more in this feild. I landed on intersection of cybersecurityand Quantum Computing. I began cold-emailing professors, which eventually led me to a DRDO-funded research internship at NITK — focused on quantum distinguishers, Simon's algorithm, Grover's algorithm, and key recovery attacks in Generalized Feistel networks.",
+    },
+  {
+    icon: <FaUserSecret />,
+    title: 'Research, GSoC, and Growth',
+    description:
+    "This summer has been my most intense yet — balancing Google Summer of Code with Sugar Labs (Music Blocks Masonry Module), continuing research at NITK, brainstorming every single idea, nights spent in fixing bugs (yes, vibe coding up this website) and attending the ACM India Summer School on Cryptography at IIT Bombay. It's been sleepless, surreal, and transformative. ",
   },
   {
-    icon: <FaFlask />,
-    date: 'Third Year',
-    title: 'A Deep Dive into the Abstract',
-    description: "Fell in love with the complexities of Quantum Computing and Cybersecurity. This new fascination led me to a DRDO-funded research project at NITK, exploring the frontiers of quantum cryptanalysis.",
-  },
-  {
-    icon: <FaRocket />,
-    date: 'Present Day',
-    title: 'Launching into the Future',
-    description: "Accepted into Google Summer of Code with Sugar Labs while continuing quantum research. Attended the ACM India Summer School on Cryptography at IIT Bombay, constantly learning and pushing the boundaries of what's possible.",
+    icon: <FaUserSecret />,
+    title: 'Excited for the next chapter',
+    description:
+    "I'm now stepping into my third year with more clarity and hunger. I want to publish my research, explore and learn more by doing research internships, and build tools that make security simple, accessible, and futuristic. I am thankful to all that happened this summer and the way it all aligned, my interest in the research feild has grown even higher and not just theoretical, I want to put every piece of work I do to solve a problem and make a positive impact in the community. Looking forward to the next chapter of my journey.",
   },
 ];
 
 const highlightsData = [
-    { text: 'Cybersecurity + Quantum', icon: <FaShieldAlt /> },
-    { text: 'GSoC @ Sugar Labs', icon: <FaCode /> },
-    { text: 'Research @ NITK (DRDO)', icon: <FaSearch /> },
-    { text: 'IIIT Kottayam, CSE', icon: <FaGraduationCap /> },
-    { text: 'Singer, Dancer, Sketcher', icon: <FaPalette /> },
-    { text: 'Always Curious', icon: <FaLightbulb /> },
+  { text: 'Cybersecurity + Quantum Focus', icon: <FaShieldAlt /> },
+  { text: 'GSoC 2025 @ Sugar Labs', icon: <FaCodeBranch /> },
+  { text: 'Quantum Research (DRDO, NITK)', icon: <FaFlask /> },
+  { text: 'IIIT Kottayam, CSE + Cybersecurity', icon: <FaUniversity /> },
+  { text: 'Creative Soul: Music, Dance, Art', icon: <FaPalette /> },
+  { text: 'Lifelong Learner + Self-Starter', icon: <FaLightbulb /> },
 ];
 
 const About = () => {
+  const cardRefs = useRef([]);
+
+  useEffect(() => {
+    const observer = new window.IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+          }
+        });
+      },
+      { threshold: 0.2 }
+    );
+    cardRefs.current.forEach((ref) => {
+      if (ref) observer.observe(ref);
+    });
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <section className="about-section">
       <div className="about-header">
         <h1 className="about-title">About Me</h1>
         <svg className="arrow" width="62" height="62" viewBox="0 0 62 62" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M42.2899 44.5C36.7899 43.1 36.7899 37.1 40.0899 33.7C44.7899 28.7 33.3899 18.2 25.4899 20.1C17.5899 22 20.3899 31.9 20.3899 31.9" stroke="var(--text-color)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-            <path d="M19.4899 24.1L25.4899 20.1L29.4899 24.7" stroke="var(--text-color)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+          <path d="M42.2899 44.5C36.7899 43.1 36.7899 37.1 40.0899 33.7C44.7899 28.7 33.3899 18.2 25.4899 20.1C17.5899 22 20.3899 31.9 20.3899 31.9" stroke="var(--text-color)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+          <path d="M19.4899 24.1L25.4899 20.1L29.4899 24.7" stroke="var(--text-color)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
         </svg>
       </div>
 
@@ -58,44 +83,45 @@ const About = () => {
           </div>
         </div>
         <div className="about-text">
-          <h2>A curious mind driven by code, questions, and creativity.</h2>
+          <h2>A curious mind blending code, creativity, and cryptography.</h2>
           <p>
-            From my first lines of C++ to diving deep into quantum cryptography, my journey has been a non-stop exploration of how logic can be made beautiful and secure. I thrive on turning complex challenges into elegant solutions.
+            I'm Saumya — a developer, researcher, and creative explorer on a journey to build meaningful things at the intersection of cybersecurity and quantum computing. Whether I'm writing code, sketching out ideas, or crafting in a dance routine, I'm always led by creativity & curiosity.
           </p>
         </div>
       </div>
 
       <div className="journey-section">
         <h2 className="journey-title text-accent">My Journey So Far</h2>
-        <div className="journey-story">
-          <p>
-            My journey into tech wasn't a straight line. I stepped into my first C++ class without any prior coding experience, just a spark of curiosity. That spark quickly caught fire as I discovered the beauty of logic and the thrill of turning lines of code into something real.
-          </p>
-          <p>
-            That initial passion led me from basic web development to my first major project: our college's placement portal. It was a whirlwind of learning on the fly with a talented team and my first taste of real-world collaboration. This experience pushed me to dive deeper, leading me to open source and the incredible community at Sugar Labs.
-          </p>
-          <p>
-            But my path took a surprising turn when I stumbled upon Quantum Computing and Cybersecurity. The complexity and the challenge were magnetic. I found myself cold-emailing professors, driven by a need to understand more, which led me to a DRDO-funded research project at NITK, exploring the fascinating world of quantum cryptanalysis.
-          </p>
-          <p>
-            The summer that followed was a blur of intensity. I was accepted into Google Summer of Code, attended the ACM India Summer School at IIT Bombay, and continued my quantum research. Juggling all three was demanding and filled with moments of self-doubt, but being surrounded by brilliant peers showed me how much there was still to learn and ignited my drive even further.
-          </p>
-          <p>
-            That experience taught me that passion isn't just about the 'aha' moments, but about the relentless pursuit of knowledge. My journey is ongoing, and I'm always excited for the next problem to solve.
-          </p>
+        <div className="journey-timeline creative-timeline">
+          <div className="timeline-center-line" />
+          {journeyData.map((item, index) => (
+            <div
+              className={`journey-item journey-animate-${index % 2 === 0 ? 'left' : 'right'}`}
+              key={index}
+              ref={el => cardRefs.current[index] = el}
+            >
+              <div className="journey-icon">
+                {item.icon}
+              </div>
+              <div className="journey-content">
+                <h3 className="journey-item-title">{item.title}</h3>
+                <p className="journey-description" dangerouslySetInnerHTML={{ __html: item.description }} />
+              </div>
+            </div>
+          ))}
         </div>
       </div>
-      
+
       <div className="highlights-section">
         {highlightsData.map((item, index) => (
-            <div className="sticky-note" key={index}>
-                <div className="sticky-note-icon">{item.icon}</div>
-                <p>{item.text}</p>
-            </div>
+          <div className="sticky-note" key={index}>
+            <div className="sticky-note-icon">{item.icon}</div>
+            <p>{item.text}</p>
+          </div>
         ))}
       </div>
     </section>
   );
 };
 
-export default About; 
+export default About;

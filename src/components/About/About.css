@@ -113,42 +113,124 @@
   font-family: 'Playfair Display', serif;
 }
 
-.journey-story {
-    max-width: 800px;
-    margin: 0 auto;
-    text-align: center;
-    line-height: 2;
-    font-size: 1.1rem;
+.creative-timeline {
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem 0;
 }
 
-.journey-story p {
-    margin-bottom: 2rem;
+.timeline-center-line {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 6px;
+  background: repeating-linear-gradient(
+    to bottom,
+    var(--accent-color),
+    var(--accent-color) 20px,
+    transparent 20px,
+    transparent 40px
+  );
+  border-radius: 3px;
+  z-index: 0;
+  transform: translateX(-50%);
+  opacity: 0.5;
+  box-shadow: 0 0 4px 1px var(--accent-color);
 }
 
-.journey-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
+.journey-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 3rem;
+  position: relative;
+  z-index: 1;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s cubic-bezier(.4,1.4,.6,1), transform 0.8s cubic-bezier(.4,1.4,.6,1);
 }
 
-.journey-card {
-    background-color: var(--card-background);
-    padding: 2rem;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px var(--shadow-color);
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
+.journey-animate-left {
+  flex-direction: row;
+  left: 0;
+  transform: translateX(-80px) translateY(40px);
+}
+
+.journey-animate-right {
+  flex-direction: row-reverse;
+  right: 0;
+  transform: translateX(80px) translateY(40px);
+}
+
+.journey-item.in-view {
+  opacity: 1;
+  transform: translateX(0) translateY(0);
 }
 
 .journey-icon {
-    font-size: 2rem;
-    color: var(--accent-color);
+  width: 60px;
+  height: 60px;
+  background: var(--accent-color);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--background-color);
+  font-size: 1.5rem;
+  z-index: 2;
+  position: relative;
+  box-shadow: 0 4px 12px rgba(217, 136, 185, 0.3);
+  transition: transform 0.3s ease;
 }
 
-.journey-card-title {
-    font-size: 1.5rem;
-    font-weight: 600;
+.journey-content {
+  flex: 1;
+  margin: 0 2rem;
+  background: var(--card-background);
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px var(--shadow-color);
+  transition: transform 0.3s ease;
+}
+
+.journey-content:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 24px var(--shadow-color);
+}
+
+.journey-date {
+  color: var(--accent-color);
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.journey-item-title {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 0.8rem;
+  color: var(--text-color);
+}
+
+.journey-description {
+  line-height: 1.6;
+  color: var(--text-color);
+  opacity: 0.9;
+}
+
+.journey-story {
+  max-width: 800px;
+  margin: 4rem auto 0;
+  text-align: center;
+  line-height: 2;
+  font-size: 1.1rem;
+}
+
+.journey-story p {
+  margin-bottom: 2rem;
 }
 
 .highlights-section {
@@ -164,7 +246,7 @@
     background-color: var(--card-background);
     padding: 1rem 1.5rem;
     border-radius: 8px;
-    box-shadow: 0 4px 8px var(--shadow-color);
+    box-shadow: 0 4px 12px var(--shadow-color);
     text-align: center;
     min-width: 200px;
     display: flex;
@@ -177,6 +259,7 @@
 
 .sticky-note:hover {
     transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 8px 24px var(--shadow-color);
 }
 
 .sticky-note:nth-child(2n) {
@@ -206,27 +289,49 @@
   .arrow {
     display: none;
   }
+
   .about-header {
-    width: 100%;
     text-align: center;
   }
 
-  .timeline::before {
-    left: 25px;
+  .timeline-center-line {
+    left: 20px;
+    width: 4px;
   }
-  .timeline-item {
-    width: 100%;
-    padding: 1rem 0;
-    text-align: left !important;
+
+  .journey-animate-left,
+  .journey-animate-right {
+    flex-direction: row !important;
+    margin-left: 30px;
+    transform: translateX(0) translateY(40px);
   }
-  .timeline-item:nth-child(even) {
-    left: 0;
-    padding-left: 0;
+
+  .journey-item.in-view {
+    transform: translateX(0) translateY(0);
   }
-  .timeline-item .timeline-content {
-    margin-left: 60px;
+
+  .journey-icon {
+    width: 50px;
+    height: 50px;
+    font-size: 1.2rem;
+    position: absolute;
+    left: -65px;
   }
-  .timeline-icon {
-    left: 0 !important;
+
+  .journey-content {
+    margin: 0;
+    margin-left: 1rem;
+  }
+
+  .journey-title {
+    font-size: 2rem;
+  }
+
+  .about-title {
+    font-size: 2rem;
+  }
+
+  .about-text h2 {
+    font-size: 1.5rem;
   }
 } 
